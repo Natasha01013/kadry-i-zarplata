@@ -3,6 +3,11 @@
 /* Импорт модулей стилей */
 @import url('./src/styles/newsCard.css'); /* Стили для карточек новостей */
 
+/* Универсальный box-sizing для единообразной модели окна */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
 body {
     font-family: 'Inter', sans-serif;
     margin: 0;

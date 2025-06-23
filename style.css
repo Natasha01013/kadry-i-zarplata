@@ -183,10 +183,12 @@ body {
     text-decoration: underline;
 }
 
-.document-list li .file-icon {
-    margin-right: 0.75rem;
-    font-size: 1.5rem;
-    color: #666;
+/* Стиль для иконки документа */
+.document-list-icon {
+    width: 24px; 
+    height: 24px;
+    margin-right: 0.75rem; 
+    vertical-align: middle; /* Выравнивание по центру текста */
 }
 
 /* Оформление страницы контактов */
@@ -236,6 +238,7 @@ body {
     width: 24px; 
     height: 24px; 
     vertical-align: middle; /* Для лучшего вертикального выравнивания, хотя flexbox уже помогает */
+    white-space: nowrap; /* Запрещает перенос строки внутри этого элемента */
 }
 
 /* Footer */

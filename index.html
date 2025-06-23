@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Новости по кадрам и зарплате</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Ссылка на шрифты из Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="logo">Кадры и Зарплата</div>
+        <button class="mobile-menu-button" id="mobileMenuButton">&#9776;</button>
+        <nav id="mainNav">
+            <a href="#" onclick="showPage('home'); return false;">Новости</a>
+            <a href="#" onclick="showPage('documents'); return false;">Бланки документов</a>
+            <a href="#" onclick="showPage('contacts'); return false;">Контакты</a>
+        </nav>
+    </header>
+
+    <main class="content" id="app-content">
+        <!-- Контент будет заполняться из файла JS -->
+    </main>
+
+    <footer class="footer">
+        <p>Если Вы обнаружили любую ошибку на сайте, у вас есть вопросы по контенту или предложения по тематике новостей, напишите, пожалуйста, <a href="#" onclick="showPage('contacts'); return false;">мне</a></p>
+    </footer>
+
+    <script type="module" src="src/main.js"></script>
+</body>
+</html>

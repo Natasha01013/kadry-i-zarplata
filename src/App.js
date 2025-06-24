@@ -36,6 +36,7 @@ export class App {
         if (this.mobileMenuButton) {
             this.mobileMenuButton.addEventListener('click', () => {
                 this.mainNavElement.classList.toggle('active');
+                this.mobileMenuButton.classList.toggle('active');
             });
         }
 
@@ -64,6 +65,10 @@ export class App {
         // Закрываем мобильное меню, если оно открыто
         if (this.mainNavElement.classList.contains('active')) {
             this.mainNavElement.classList.remove('active');
+        }
+        // Если меню закрывается, убедимся, что кнопка тоже возвращается в состояние "гамбургер"
+        if (this.mobileMenuButton.classList.contains('active')) {
+             this.mobileMenuButton.classList.remove('active');
         }
     }
 }

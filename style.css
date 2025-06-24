@@ -130,7 +130,7 @@ body {
 
 /* Стиль кнопки "назад к новостям" */
 .back-button {
-    background-color: #007bff; 
+    background-color: #4599f3; 
     color: white;
     padding: 0.75rem 1.25rem;
     border-radius: 0.5rem;
@@ -235,8 +235,8 @@ body {
 }
 
 .telegram-channel-link .telegram-icon {
-    width: 24px; 
-    height: 24px; 
+    width: 30px; 
+    height: 30px; 
     vertical-align: middle; /* Для лучшего вертикального выравнивания, хотя flexbox уже помогает */
     white-space: nowrap; /* Запрещает перенос строки внутри этого элемента */
 }
@@ -249,13 +249,97 @@ body {
 }
 
 /* Стили мобильной навигации */
-.mobile-menu-button {
-    display: none; /* Скрытый на desktop */
+/* .mobile-menu-button {
+    display: none; 
     background: none;
     border: none;
     color: white;
     font-size: 2rem;
     cursor: pointer;
+} */
+.mobile-menu-button {
+    /* Сброс стандартных стилей кнопки и центрирование содержимого */
+    display: none; /* Скрыто по умолчанию на десктопе */
+    background: none;
+    border: none;
+    padding: 0; /* Удаляем padding, чтобы управлять размером через внутренние элементы */
+    width: 40px; /* Фиксированная ширина для иконки */
+    height: 40px; /* Фиксированная высота для иконки */
+    cursor: pointer;
+    position: relative; /* Для правильного позиционирования полосок */
+    align-items: center; /* Центрируем содержимое по вертикали */
+    justify-content: center; /* Центрируем содержимое по горизонтали */
+    z-index: 1001; /* Поверх навигации */
+}
+
+.mobile-menu-button .hamburger-lines {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 25px; /* Ширина полосок */
+    height: 20px; /* Высота контейнера полосок */
+}
+
+.mobile-menu-button .hamburger-lines span {
+    display: block;
+    width: 100%;
+    height: 3px; /* Толщина полоски */
+    background-color: white; /* Цвет полосок */
+    border-radius: 3px;
+    transition: all 0.3s ease-in-out; /* Плавная анимация */
+}
+
+/* Анимация гамбургера в крестик */
+.mobile-menu-button.active .hamburger-lines span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg); /* Верхняя полоска */
+}
+
+.mobile-menu-button.active .hamburger-lines span:nth-child(2) {
+    opacity: 0; /* Средняя полоска исчезает */
+}
+
+.mobile-menu-button.active .hamburger-lines span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg); /* Нижняя полоска */
+}
+
+/* Кнопка "Наверх" */
+.scroll-to-top-btn {
+    position: fixed; /* Fixed position relative to the viewport */
+    bottom: 2rem; /* 2rem from the bottom */
+    right: 2rem; /* 2rem from the right */
+    background-image: linear-gradient(to right, #4CAF50, #66BB6A); /* Green gradient */
+    color: white;
+    border: none;
+    border-radius: 50%; /* Makes the button round */
+    width: 50px; /* Width of the button */
+    height: 50px; /* Height of the button (should be same as width for a perfect circle) */
+    font-size: 2rem; /* Size of the arrow icon */
+    display: flex; /* Use flexbox to center the arrow */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    opacity: 0; /* Initially hidden */
+    visibility: hidden; /* Ensures it's not interactive when hidden */
+    transition: opacity 0.3s ease, visibility 0.3s ease; /* Smooth transition for show/hide */
+    z-index: 1000; /* Ensure it stays on top of other content */
+}
+
+.scroll-to-top-btn.show {
+    opacity: 1; /* Fully visible */
+    visibility: visible; /* Make it interactive */
+}
+
+.scroll-to-top-btn:hover {
+    background-image: linear-gradient(to right, #5cb85c, #70d870); /* Slightly lighter gradient on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Stronger shadow on hover */
+}
+
+/* Стиль абзаца с указанием авторства изображения */
+.photo {
+    font-size: 0.75rem;
+    color: #615b5b;
+    margin-top: 1.5rem;
 }
 
 /* Медиа-запрос для мобильных устройств */
@@ -269,7 +353,9 @@ body {
         position: absolute;
         top: 70px; /* Регулировка в зависимости от высоты жатки */
         left: 0;
-        width: 100%;
+        right: 0;
+        width: auto;
+        margin: 0;
         background-image: linear-gradient(to right, #2c722e, #6fd674);
         padding: 1rem 0;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -278,6 +364,8 @@ body {
     }
     .header nav.active {
         display: flex; /* Показывать, когда активен */
+        margin-left: 0.5rem;
+        margin-right: 0.5rem;
     }
     .header nav a {
         margin: 0.5rem 1rem;
@@ -294,11 +382,11 @@ body {
     .header .logo {
         font-size: 1.2rem;
     }
-}
-
-/* Стиль абзаца с указанием авторства изображения */
-.photo {
-    font-size: 0.75rem;
-    color: #615b5b;
-    margin-top: 1.5rem;
+    .scroll-to-top-btn {
+        bottom: 1rem;
+        right: 1rem;
+        width: 45px;
+        height: 45px;
+        font-size: 1.8rem;
+    }
 }
